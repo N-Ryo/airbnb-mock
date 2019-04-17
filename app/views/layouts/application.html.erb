@@ -7,11 +7,31 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '282202302683617',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v3.2'
+        });
+          
+        FB.AppEvents.logPageView();   
+          
+      };
+    </script>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    
+    <% if user_signed_in? %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% else %>
+        <%= link_to 'Sign in', user_facebook_omniauth_authorize_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
