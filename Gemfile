@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'omniauth'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
