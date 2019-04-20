@@ -1,0 +1,2 @@
+module HostOauthenticatesHelper
+end

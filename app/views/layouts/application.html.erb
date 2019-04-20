@@ -27,10 +27,17 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
-    <% if user_signed_in? %>
+    <%= p session[:user_id] %>
+    <%= p session[:host_id] %>
+    <%= p user_signed_in? %>
+    <%= p host_signed_in? %>
+    <% if user_signed_in? || host_signed_in? %>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
     <% else %>
-        <%= link_to  "Sign in", '/auth/facebook' %>
+        <%= link_to  "User FB Sign in", '/auth/facebook' %>
+        <%= link_to  "User G Sign in", '/auth/google_oauth2' %>
+        <%= link_to  "Host FB Sign in", '/auth/facebook_host' %>
+        <%= link_to  "Host G Sign in", '/auth/google_oauth2_host' %>
     <% end %>
     <%= yield %>
   </body>
